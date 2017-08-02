@@ -41,6 +41,7 @@ Here are some of the documents from Apple that informed the style guide. If some
   * [Ternary Operator](#ternary-operator)
 * [Init Methods](#init-methods)
 * [Class Constructor Methods](#class-constructor-methods)
+* [Golden Path](#golden-path)
 * [CGRect Functions](#cgrect-functions)
 * [Error handling](#error-handling)
 * [Singletons](#singletons)
@@ -596,6 +597,32 @@ Where class constructor methods are used, these should always return type of 'in
 ```
 
 More information on instancetype can be found on [NSHipster.com](http://nshipster.com/instancetype/).
+
+## Golden Path
+
+When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
+
+**Preferred:**
+
+```objc
+- (void)someMethod {
+  if (![someOther boolValue]) {
+	return;
+  }
+
+  //Do something important
+}
+```
+
+**Not Preferred:**
+
+```objc
+- (void)someMethod {
+  if ([someOther boolValue]) {
+    //Do something important
+  }
+}
+```
 
 ## CGRect Functions
 
