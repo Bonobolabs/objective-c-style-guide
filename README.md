@@ -1,4 +1,4 @@
-# Whisk Mobile Development Objective-C style guide.
+# Objective-C style guide.
 
 This style guide outlines the conventions for our iOS apps.
 
